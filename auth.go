@@ -1,10 +1,10 @@
 package httpDigestAuth
 
 import (
-	"fmt"
 	"crypto/md5"
 	"crypto/rand"
 	"encoding/base64"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -90,7 +90,6 @@ func (d *DigestHeaders) ApplyAuth(req *http.Request) {
 	if d.Opaque != "" {
 		AuthHeader = fmt.Sprintf(`%s, opaque="%s"`, AuthHeader, d.Opaque)
 	}
-	fmt.Printf("%v\n", AuthHeader)
 	req.Header.Set("Authorization", AuthHeader)
 }
 
